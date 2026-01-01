@@ -634,32 +634,111 @@
     <!-- /Faq Section -->
    
     <!-- Contact Section -->
-   <form class="php-email-form" data-aos="fade-up" data-aos-delay="300" onsubmit="sendWhatsApp(event)">
-  <div class="row gy-4">
+<section id="contact" class="contact section">
 
-    <div class="col-md-6">
-      <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Fill the form below and it will open WhatsApp chat with me instantly.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
+      <div class="row gy-5">
+
+        <div class="col-lg-4">
+          <div class="info-item d-flex align-items-center">
+            <i class="bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Address</h3>
+              <p>Karachi, Pakistan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="info-item d-flex align-items-center">
+            <i class="bi bi-whatsapp flex-shrink-0"></i>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>
+                <a href="https://wa.me/923191694034" target="_blank" style="color:inherit; text-decoration:none;">
+                  +92 319 1694034
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="info-item d-flex align-items-center">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email</h3>
+              <p>adeebayameen2@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="col-md-6">
-      <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-    </div>
+    <!-- WhatsApp Form -->
+    <form id="whatsappForm" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+      <div class="row gy-4">
 
-    <div class="col-md-12">
-      <input type="text" id="subject" class="form-control" placeholder="Subject" required>
-    </div>
+        <div class="col-md-6">
+          <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+        </div>
 
-    <div class="col-md-12">
-      <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
-    </div>
+        <div class="col-md-6">
+          <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+        </div>
 
-    <div class="col-md-12 text-center">
-      <button type="submit">Send via WhatsApp</button>
-    </div>
+        <div class="col-md-12">
+          <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+        </div>
+
+        <div class="col-md-12">
+          <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+        </div>
+
+        <div class="col-md-12 text-center">
+          <button type="submit">Send via WhatsApp</button>
+        </div>
+
+      </div>
+    </form>
 
   </div>
-</form>
 
+</section>
+
+<!-- WhatsApp Script -->
+<script>
+  document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappMessage =
+      `Hello Adeeba,%0A%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Email: ${encodeURIComponent(email)}%0A` +
+      `Subject: ${encodeURIComponent(subject)}%0A%0A` +
+      `Message:%0A${encodeURIComponent(message)}`;
+
+    const whatsappNumber = "923191694034";
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>
 
     <!-- /Contact Section -->
 
